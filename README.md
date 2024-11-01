@@ -1,3 +1,7 @@
+# 컴포넌트 다이어그램
+![image](https://github.com/user-attachments/assets/0fcd8db0-9d43-4e60-b9a0-e53b48d59758)
+---
+
 # 기능 요구사항
 
 ## 1. 사용자 관리
@@ -184,3 +188,5 @@
 - 카카오맵 API
 - 아임포트 카드 결제 API
 - 카카오페이 결제 API
+---
+
