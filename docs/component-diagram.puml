@@ -1,0 +1,27 @@
+```plantuml
+@startuml
+
+package "External API"{
+   component "소셜 API" as SocialAPI
+   component "결제 API" as PaymentAPI
+   component "지도 API" as MapAPI
+}
+
+node {
+component "계정관리" as AccountManagement
+AccountManagement ..> 회원가입
+AccountManagement ..> 로그인
+회원가입 ..> SocialAPI
+}
+
+node {
+component "서비스관리" as ServiceManagement
+ServiceManagement <. 로그인
+ServiceManagement ..> 조회
+조회 --> 대여
+대여 --> 반납
+조회 ..> MapAPI
+반납 ..> PaymentAPI
+}
+
+@enduml
