@@ -1,4 +1,3 @@
-```plantuml
 @startuml
 
 package "External API"{
