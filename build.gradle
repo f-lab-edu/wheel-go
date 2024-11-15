@@ -17,23 +17,14 @@ java {
 }
 
 dependencies {
+    implementation "org.springframework:spring-webmvc:5.3.22" // Spring의 mvc 패턴을 구현하는 모듈
+    implementation "org.springframework:spring-context:5.3.22" // Spring에서 애플리케이션의 객체를 생성하고 관리하는 DI와 IoC 기능 제공
+
+    implementation "org.apache.tomcat.embed:tomcat-embed-core:9.0.68" // 내장 톰캣 기능 제공
+    implementation "org.apache.tomcat.embed:tomcat-embed-jasper:9.0.68" // JSP 처리 기능 제공
+
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.1"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
-
-    // Servlet API
-    compileOnly "javax.servlet:servlet-api:2.5"
-
-    // Spring Framework - 5.3.x 버전으로 업그레이드
-    implementation "org.springframework:spring-aop:5.3.22"
-    implementation "org.springframework:spring-beans:5.3.22"
-    implementation "org.springframework:spring-context:5.3.22"
-    implementation "org.springframework:spring-core:5.3.22"
-    implementation "org.springframework:spring-expression:5.3.22"
-    implementation "org.springframework:spring-jcl:5.3.22"
-    implementation "org.springframework:spring-tx:5.3.22"
-    implementation "org.springframework:spring-web:5.3.22"
-    implementation "org.springframework:spring-webmvc:5.3.22"
-    implementation "org.springframework:spring-jdbc:5.3.22"
 }
 
 test {
