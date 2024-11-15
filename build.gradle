@@ -1,0 +1,41 @@
+plugins {
+    id "java"
+    id "war"
+}
+
+group "com.wheelgo"
+version "0.0.1-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.1"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
+
+    // Servlet API
+    compileOnly "javax.servlet:servlet-api:2.5"
+
+    // Spring Framework - 5.3.x 버전으로 업그레이드
+    implementation "org.springframework:spring-aop:5.3.22"
+    implementation "org.springframework:spring-beans:5.3.22"
+    implementation "org.springframework:spring-context:5.3.22"
+    implementation "org.springframework:spring-core:5.3.22"
+    implementation "org.springframework:spring-expression:5.3.22"
+    implementation "org.springframework:spring-jcl:5.3.22"
+    implementation "org.springframework:spring-tx:5.3.22"
+    implementation "org.springframework:spring-web:5.3.22"
+    implementation "org.springframework:spring-webmvc:5.3.22"
+    implementation "org.springframework:spring-jdbc:5.3.22"
+}
+
+test {
+    useJUnitPlatform()
+}
