@@ -1,26 +1,25 @@
 @startuml
 
-package "External API"{
+package "External API" {
    component "소셜 API" as SocialAPI
    component "결제 API" as PaymentAPI
    component "지도 API" as MapAPI
 }
 
-node {
-component "계정관리" as AccountManagement
-AccountManagement ..> 회원가입
-AccountManagement ..> 로그인
-회원가입 ..> SocialAPI
+package "Internal Components" {
+   package "계정 관리" as AccountManagement {
+      component "회원가입 API" as RegisterAPI
+   }
+
+   package "서비스 관리" as ServiceManagement {
+      component "결제 API" as PaymentIntegration
+      component "지도 API" as MapIntegration
+   }
 }
 
-node {
-component "서비스관리" as ServiceManagement
-ServiceManagement <. 로그인
-ServiceManagement ..> 조회
-조회 --> 대여
-대여 --> 반납
-조회 ..> MapAPI
-반납 ..> PaymentAPI
-}
+RegisterAPI ..> SocialAPI : OAuth 인증
+
+PaymentIntegration ..> PaymentAPI : 결제 요청/응답
+MapIntegration ..> MapAPI : 위치 정보 요청
 
 @enduml
