@@ -1,6 +1,6 @@
 plugins {
     id "java"
-    id "war"
+    id "application"
 }
 
 group "com.wheelgo"
@@ -17,14 +17,22 @@ java {
 }
 
 dependencies {
-    implementation "org.springframework:spring-webmvc:5.3.22" // Spring의 mvc 패턴을 구현하는 모듈
-    implementation "org.springframework:spring-context:5.3.22" // Spring에서 애플리케이션의 객체를 생성하고 관리하는 DI와 IoC 기능 제공
+    // Spring Framework 의존성
+    implementation 'org.springframework:spring-webmvc:5.3.22'
+    implementation 'org.springframework:spring-context:5.3.22'
+    implementation 'org.springframework:spring-web:5.3.22'
 
-    implementation "org.apache.tomcat.embed:tomcat-embed-core:9.0.68" // 내장 톰캣 기능 제공
-    implementation "org.apache.tomcat.embed:tomcat-embed-jasper:9.0.68" // JSP 처리 기능 제공
+    // 내장 톰캣
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:9.0.73'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.73' // JSP 처리를 위한 Jasper 의존성
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
 
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.1"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
+    // JSTL
+    implementation 'javax.servlet:jstl:1.2'
+}
+
+application {
+    mainClass = 'com.wheelgo.EmbeddedTomcatApplication' // 메인 클래스 지정
 }
 
 test {
