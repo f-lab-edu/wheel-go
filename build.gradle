@@ -1,0 +1,41 @@
+plugins {
+    id "java"
+    id "application"
+}
+
+group "com.wheelgo"
+version "0.0.1-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    // Spring Framework 의존성
+    implementation 'org.springframework:spring-webmvc:5.3.22'
+    implementation 'org.springframework:spring-context:5.3.22'
+    implementation 'org.springframework:spring-web:5.3.22'
+
+    // 내장 톰캣
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:9.0.73'
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // JSTL
+    implementation 'javax.servlet:jstl:1.2'
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.1"
+}
+
+application {
+    mainClass = 'com.wheelgo.EmbeddedTomcatApplication' // 메인 클래스 지정
+}
+
+test {
+    useJUnitPlatform()
+}
