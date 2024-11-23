@@ -3,6 +3,9 @@ package com.wheelgo.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/*
+ * 차량 > 킥보드 테이블
+ */
 @Entity
 @Table(name =  "kickboards")
 public class Kickboard extends Vehicle{

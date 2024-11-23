@@ -2,7 +2,11 @@ package com.wheelgo.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
+/*
+* 대여 테이블
+*/
 @Entity
 @Table(name = "rentals")
 public class Rental {
@@ -63,7 +67,7 @@ public class Rental {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Optional<User> user) {
         this.user = user;
     }
 

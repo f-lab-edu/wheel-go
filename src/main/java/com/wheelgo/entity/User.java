@@ -2,6 +2,9 @@ package com.wheelgo.entity;
 
 import javax.persistence.*;
 
+/*
+ * 사용자 테이블
+ */
 @Entity
 @Table(name = "users")
 public class User {

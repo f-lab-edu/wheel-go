@@ -2,6 +2,9 @@ package com.wheelgo.entity;
 
 import javax.persistence.*;
 
+/*
+ * 차량 테이블
+ */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "vehicles")
