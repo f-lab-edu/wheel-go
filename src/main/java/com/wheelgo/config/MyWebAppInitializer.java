@@ -28,7 +28,7 @@ public class MyWebAppInitializer implements WebApplicationInitializer {
         // AnnotationConfigWebApplicationContext는 Java Config를 기반으로 동작.
         AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
 
-        appContext.register(ServletAppContext.class);
+        appContext.register(ServletAppContext.class, AppConfig.class);
 
         // DispatcherServlet 생성 및 Spring 애플리케이션 컨텍스트와 연결.
         DispatcherServlet dispatcherServlet = new DispatcherServlet(appContext);
