@@ -21,20 +21,20 @@ dependencies {
     implementation 'org.springframework:spring-webmvc:5.3.22'
     implementation 'org.springframework:spring-context:5.3.22'
     implementation 'org.springframework:spring-web:5.3.22'
+
+    // Spring Security
+    implementation 'org.springframework.security:spring-security-web:5.8.0'
+    implementation 'org.springframework.security:spring-security-config:5.8.0'
+
     // JPA (Jakarta Persistence)
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.data:spring-data-jpa:2.7.15'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
 
     // 내장 톰캣
     implementation 'org.apache.tomcat.embed:tomcat-embed-core:9.0.73'
-    implementation 'javax.servlet:javax.servlet-api:4.0.1'
 
     // JSTL
     implementation 'javax.servlet:jstl:1.2'
-
-    implementation 'org.hibernate:hibernate-core:5.6.15.Final'
-
-    // H2 Database
-    runtimeOnly 'com.h2database:h2:2.2.224'
 
     // Test dependencies
     testImplementation 'org.springframework:spring-test:5.3.27'
