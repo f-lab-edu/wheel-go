@@ -14,7 +14,7 @@ public class MyWebAppInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) throws ServletException {
         // Spring WebApplicationContext 초기화
         AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
-        appContext.register(ServletAppContext.class);
+        appContext.register(ServletAppContext.class, AppConfig.class);
 
         // DispatcherServlet 등록 및 구성
         DispatcherServlet dispatcherServlet = new DispatcherServlet(appContext);
