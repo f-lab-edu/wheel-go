@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/rental-service")
 public class RentalController {
 
-    @Autowired
     private RentalService rentalService;
+
+    public RentalController(RentalService rentalService) {
+        this.rentalService = rentalService;
+    }
 
     // 차량 대여 요청
     @PostMapping("/rent")
+    @ResponseBody
     public RentalDTO rentVehicle(
             @RequestParam String qrCode,
             @RequestParam String vehicleType,
