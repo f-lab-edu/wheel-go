@@ -16,9 +16,7 @@ public class EmbeddedTomcatApplication {
             Tomcat tomcat = new Tomcat();
             tomcat.setPort(8080);
 
-            // 빈 컨텍스트 생성
-            String webappDir = new File("src/main/webapp").getAbsolutePath();
-            Context context = tomcat.addContext("", webappDir);
+            Context context = tomcat.addContext("", null);
 
             // Spring 애플리케이션 컨텍스트 생성 및 설정 클래스 등록
             AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
