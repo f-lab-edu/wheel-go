@@ -19,10 +19,10 @@ public class RentalService {
     // 차량 대여
     public RentalDTO rentVehicle(String qrCode, String vehicleType, Long userId, String username, String location){
         // 현재 차량이 이미 대여 중인지 확인
-        Optional<Rental> existingRental = rentalRepository
+        Optional<Rental> existingRental = /*rentalRepository
                 .findByVehicleQrCodeAndReturnedFalse(qrCode)
                 .stream()
-                .findFirst();
+                .findFirst();*/ null;
 
         if(existingRental.isPresent()){
             throw new RuntimeException("Vehicle is already rented");
@@ -47,12 +47,14 @@ public class RentalService {
     // 차량 반납 처리
     public RentalDTO returnVehicle(String qrCode) {
         // 차량 대여 정보 조회
-        Rental rental = rentalRepository
+        Rental rental = /*rentalRepository
                 .findByVehicleQrCodeAndReturnedFalse(qrCode)
                 .stream()
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("No active rental found for this vehicle"));
 
+*/
+                null;
         // 반납 처리
         rental.setReturned(true);
         rental.setRentalEndTime(LocalDateTime.now());
