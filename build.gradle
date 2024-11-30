@@ -18,8 +18,8 @@ java {
 
 dependencies {
     // Spring Framework 의존성
-    implementation 'org.springframework:spring-webmvc:5.3.22'
-    implementation 'org.springframework:spring-context:5.3.22'
+    implementation 'org.springframework:spring-webmvc:6.1.13'
+    implementation 'org.springframework:spring-context:6.1.14'
 
     // Spring Data JPA와 Hibernate 의존성
     implementation 'org.springframework.data:spring-data-jpa:3.4.0'
@@ -29,17 +29,15 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
 
-    // 로그 관리
-    implementation 'org.slf4j:slfj-api:2.0.9'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
 
     // 내장 톰캣
-    implementation 'org.apache.tomcat.embed:tomcat-embed-core:9.0.73'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:11.0.0'
 
-    // logback 구현체
-    runtimeOnly 'ch.qos.logback:logback-classic:1.4.11'
+    runtimeOnly 'ch.qos.logback:logback-classic:1.4.12'
 
     // H2 Database (In-Memory DB)
-    runtimeOnly 'com.h2database:h2:2.1.214'
+    implementation 'com.h2database:h2:2.2.220'
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.1"
 }

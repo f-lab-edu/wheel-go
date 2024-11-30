@@ -4,12 +4,15 @@ import com.wheelgo.config.AppConfig;
 import com.wheelgo.config.ServletAppContext;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
+import org.h2.server.web.WebServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import java.io.File;
-
 public class EmbeddedTomcatApplication {
+
+    private static final Logger logger = LoggerFactory.getLogger(EmbeddedTomcatApplication.class);
 
     public static void main(String[] args) {
         try {
@@ -17,8 +20,7 @@ public class EmbeddedTomcatApplication {
             tomcat.setPort(8080);
 
             // 빈 컨텍스트 생성
-            String webappDir = new File("src/main/webapp").getAbsolutePath();
-            Context context = tomcat.addContext("", webappDir);
+            Context context = tomcat.addContext("", null);
 
             // Spring 애플리케이션 컨텍스트 생성 및 설정 클래스 등록
             AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
@@ -35,13 +37,16 @@ public class EmbeddedTomcatApplication {
             Tomcat.addServlet(context, "dispatcher", dispatcherServlet).setLoadOnStartup(1);
             context.addServletMappingDecoded("/", "dispatcher");
 
+/*            Tomcat.addServlet(context, "h2-console", new WebServlet()).setLoadOnStartup(1);
+            context.addServletMappingDecoded("/h2-console/*", "h2-console");*/
+
             // Tomcat 시작
             tomcat.start();
-            System.out.println("Tomcat started on port: " + tomcat.getConnector().getPort());
+            logger.info("Embedded Tomcat started", tomcat.getConnector().getPort());
 
             tomcat.getServer().await();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Embedded Tomcat started", e);
         }
     }
 }
