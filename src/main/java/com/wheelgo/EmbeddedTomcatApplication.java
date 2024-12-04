@@ -4,7 +4,6 @@ import com.wheelgo.config.AppConfig;
 import com.wheelgo.config.ServletAppContext;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
-import org.h2.server.web.WebServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -36,9 +35,6 @@ public class EmbeddedTomcatApplication {
             DispatcherServlet dispatcherServlet = new DispatcherServlet(appContext);
             Tomcat.addServlet(context, "dispatcher", dispatcherServlet).setLoadOnStartup(1);
             context.addServletMappingDecoded("/", "dispatcher");
-
-/*            Tomcat.addServlet(context, "h2-console", new WebServlet()).setLoadOnStartup(1);
-            context.addServletMappingDecoded("/h2-console/*", "h2-console");*/
 
             // Tomcat 시작
             tomcat.start();

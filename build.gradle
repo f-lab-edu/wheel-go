@@ -23,21 +23,23 @@ dependencies {
 
     // Spring Data JPA와 Hibernate 의존성
     implementation 'org.springframework.data:spring-data-jpa:3.4.0'
-    implementation 'org.hibernate:hibernate-core:6.2.17.Final'
+    implementation 'org.hibernate:hibernate-core:6.6.3.Final'
 
     // Json 타입 처리를 위한 Jackson 라이브러리 추가
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
 
+    // 로그 관리
     implementation 'org.slf4j:slf4j-api:2.0.9'
 
     // 내장 톰캣
     implementation 'org.apache.tomcat.embed:tomcat-embed-core:11.0.0'
 
+    // 로그 구현체
     runtimeOnly 'ch.qos.logback:logback-classic:1.4.12'
 
-    // H2 Database (In-Memory DB)
-    implementation 'com.h2database:h2:2.2.220'
+    // HSQLDB Database (In-Memory DB)
+    implementation 'org.hsqldb:hsqldb:2.6.1'
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.1"
 }
