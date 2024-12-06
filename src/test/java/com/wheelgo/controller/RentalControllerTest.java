@@ -2,6 +2,7 @@ package com.wheelgo.controller;
 
 import com.wheelgo.dto.RentalDTO;
 import com.wheelgo.service.RentalService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -25,7 +26,8 @@ class RentalControllerTest {
     private RentalController rentalController;
 
     @Test
-    void  렌트시_유효한_렌트DTO가_부여된_렌트차량_확인후_반환확인() throws Exception {
+    @DisplayName("렌트시 유효한 rentalDTO가 부여된 렌트차량 확인후 반환확인")
+    void validate_rental_return_with_dto () throws Exception {
         // Given
         RentalDTO rentalDTO = new RentalDTO();
         rentalDTO.setVehicleQrCode("QR123");
@@ -48,7 +50,8 @@ class RentalControllerTest {
     }
 
     @Test
-    void 반납시_유효한_qrCode가_주어지면_반납된_렌트DTO_반환() throws Exception {
+    @DisplayName("반납시 유효한 qrCode가 주어지면 반납된 rentalDTO 반환")
+    void return_rent_dto_with_valid_qr_code() throws Exception {
         // Given
         String qrCode = "QR123";
         RentalDTO rentalDTO = new RentalDTO();
