@@ -13,6 +13,8 @@ public class RentalDTO {
     private LocalDateTime rentalStartTime;
     private LocalDateTime rentalEndTime;
 
+    public RentalDTO() {}
+
     public Long getId() {
         return id;
     }
