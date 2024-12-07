@@ -38,8 +38,8 @@ dependencies {
     // 로그 구현체
     runtimeOnly 'ch.qos.logback:logback-classic:1.4.12'
 
-    // HSQLDB Database (In-Memory DB)
-    implementation 'org.hsqldb:hsqldb:2.6.1'
+    // H2 Database (In-Memory DB)
+    implementation 'com.h2database:h2:2.2.224'
 
     // JUnit 5
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'

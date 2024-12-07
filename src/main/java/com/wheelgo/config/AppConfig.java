@@ -21,9 +21,8 @@ public class AppConfig {
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.hsqldb.jdbcDriver");
-        // In-Memory 모드 URL 예: jdbc:hsqldb:mem:[DB이름]
-        dataSource.setUrl("jdbc:hsqldb:mem:testdb;DB_CLOSE_DELAY=1");
+        dataSource.setDriverClassName("org.h2.Driver");
+        dataSource.setUrl("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
         dataSource.setUsername("sa");
         dataSource.setPassword("");
         return dataSource;
@@ -38,7 +37,7 @@ public class AppConfig {
 
         Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.hbm2ddl.auto", "update"); // 개발용: 스키마 자동 업데이트
-        jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
+        jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
         emf.setJpaProperties(jpaProperties);
 
         return emf;
