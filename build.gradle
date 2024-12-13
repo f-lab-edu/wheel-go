@@ -41,6 +41,11 @@ dependencies {
     // H2 Database (In-Memory DB)
     implementation 'com.h2database:h2:2.2.224'
 
+    // Swagger 의존성 추가
+    implementation 'io.springfox:springfox-swagger2:3.0.0'
+    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+
     // JUnit 5
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
     // Mockito
