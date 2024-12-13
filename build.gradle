@@ -32,6 +32,11 @@ dependencies {
     // 로그 관리
     implementation 'org.slf4j:slf4j-api:2.0.9'
 
+    // Swagger 의존성
+    // %USERPROFILE%\.gradle\caches\modules-2\files-2.1\org.webjars\swagger-ui\ 경로에 접속하면 버전 확인이 가능하다.
+    implementation 'org.springdoc:springdoc-openapi-ui:1.7.0' // OpenAPI 의존성
+    implementation 'org.webjars:swagger-ui:4.18.2' // Swagger UI 버전 명시적으로 설정
+
     // 내장 톰캣
     implementation 'org.apache.tomcat.embed:tomcat-embed-core:11.0.0'
 
