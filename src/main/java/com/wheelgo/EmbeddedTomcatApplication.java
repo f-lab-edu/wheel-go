@@ -2,6 +2,7 @@ package com.wheelgo;
 
 import com.wheelgo.config.AppConfig;
 import com.wheelgo.config.ServletAppContext;
+import com.wheelgo.config.SwaggerConfig;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class EmbeddedTomcatApplication {
 
             // Spring 애플리케이션 컨텍스트 생성 및 설정 클래스 등록
             AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
-            appContext.register(ServletAppContext.class, AppConfig.class);
+            appContext.register(ServletAppContext.class, AppConfig.class, SwaggerConfig.class);
 
             // **ServletContext를 애플리케이션 컨텍스트에 설정**
             appContext.setServletContext(context.getServletContext());
