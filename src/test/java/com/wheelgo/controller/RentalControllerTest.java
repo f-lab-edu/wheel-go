@@ -1,6 +1,7 @@
 package com.wheelgo.controller;
 
 import com.wheelgo.dto.RentalDTO;
+import com.wheelgo.repository.RentalRepository;
 import com.wheelgo.service.RentalService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,8 +21,10 @@ class RentalControllerTest {
     private MockMvc mockMvc;
 
     @Mock
-    private RentalService rentalService;
+    private RentalRepository rentalRepository;
 
+    @InjectMocks
+    private RentalService rentalService;
     @InjectMocks
     private RentalController rentalController;
 
