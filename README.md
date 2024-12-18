@@ -1,16 +1,3 @@
-# 컴포넌트 다이어그램
-```mermaid
-graph TD
-    SocialAPI["소셜 API"] --> Registration["회원가입"]
-    Registration --> Login["로그인"]
-    Login --> AccountManagement["계정 관리"]
-    Login --> VehicleSearch["킥보드/자전거 조회"]
-    VehicleSearch --> MapAPI["지도 API"]
-    VehicleSearch --> Rental["대여"]
-    Rental --> Return["반납"]
-    Return --> PaymentAPI["결제 API"]
-```
----
 # 기능 요구사항
 
 ## 1. 사용자 관리
