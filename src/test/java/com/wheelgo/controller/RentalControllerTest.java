@@ -21,10 +21,8 @@ class RentalControllerTest {
     private MockMvc mockMvc;
 
     @Mock
-    private RentalRepository rentalRepository;
-
-    @InjectMocks
     private RentalService rentalService;
+
     @InjectMocks
     private RentalController rentalController;
 
