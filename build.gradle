@@ -22,8 +22,12 @@ dependencies {
     implementation 'org.springframework:spring-context:5.3.22'
 
     // Spring Data JPA와 Hibernate 의존성
-    implementation 'org.springframework.data:spring-data-jpa:3.4.0'
-    implementation 'org.hibernate:hibernate-core:6.2.17.Final'
+    implementation 'org.springframework.data:spring-data-jpa:2.7.13'
+    implementation 'org.hibernate:hibernate-core:5.6.15.Final'
+
+    // Json 타입 처리를 위한 Jackson 라이브러리 추가
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.2'
 
     // 로그 관리
     implementation 'org.slf4j:slf4j-api:2.0.9'
@@ -31,13 +35,26 @@ dependencies {
     // 내장 톰캣
     implementation 'org.apache.tomcat.embed:tomcat-embed-core:9.0.73'
 
-    // H2 Database (In-Memory DB)
-    runtimeOnly 'com.h2database:h2:2.1.214'
-
-    // logback 구현체
+    // 로그 구현체
     runtimeOnly 'ch.qos.logback:logback-classic:1.4.12'
 
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.1"
+    // H2 Database (In-Memory DB)
+    implementation 'com.h2database:h2:2.2.224'
+
+    // Swagger 의존성 추가
+    implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    // Mockito
+    testImplementation 'org.mockito:mockito-core:5.6.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.6.0'
+    // Spring Test
+    testImplementation 'org.springframework:spring-test:5.3.22'
+    // JSON Processing for MockMvc
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
 }
 
 application {
