@@ -11,15 +11,22 @@ package "Internal Components" {
       component "회원가입 API" as RegisterAPI
    }
 
+   package "대여 서비스" as RentalService {
+      component "대여 API" as RentalAPI
+      component "반납 API" as ReturnAPI
+   }
+
    package "서비스 관리" as ServiceManagement {
-      component "결제 API" as PaymentIntegration
-      component "지도 API" as MapIntegration
+      component "결제 통합 API" as PaymentIntegration
+      component "지도 통합 API" as MapIntegration
    }
 }
 
-RegisterAPI ..> SocialAPI : OAuth 인증
+RentalAPI --> ReturnAPI : 대여 정보 전달
+ReturnAPI --> PaymentIntegration : 결제 처리 요청
+RegisterAPI --> SocialAPI : OAuth 인증
 
-PaymentIntegration ..> PaymentAPI : 결제 요청/응답
-MapIntegration ..> MapAPI : 위치 정보 요청
+PaymentIntegration --> PaymentAPI : 결제 요청/응답
+MapIntegration --> MapAPI : 위치 정보 요청
 
 @enduml
